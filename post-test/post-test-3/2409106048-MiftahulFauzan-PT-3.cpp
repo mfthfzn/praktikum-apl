@@ -25,11 +25,14 @@ int main() {
 
 
   int currentSparepart = 1;
-  int currentUser = 0;
+  int currentUser = 1;
 
   sparepart[0].name = "OLI AHM 800ML";
   sparepart[0].stock = 100; 
   sparepart[0].price = 150000;
+
+  user[0].username = "fauzan";
+  user[0].password = "2409106048";
 
   while (true) {
     // Deklarasi variabel inputUserDashboard untuk menampung pilihan user
@@ -84,15 +87,15 @@ int main() {
         
           // Deklarasi variabel password untuk menampung password user
           string passwordLogin;
-          cout << "Masukkan Username : ";
-        
-          // Input username
-          cin >> usernameLogin;
 
-          cout << "Masukkan Password : ";
+          // Input username
+          cout << "Masukkan Username : ";
+          cin.ignore();
+          getline(cin, usernameLogin);
         
           // Input password
-          cin >> passwordLogin;
+          cout << "Masukkan Password : ";
+          getline(cin, passwordLogin);
           
           // Deklarasi variabel isExist untuk mengecek username dan password
           bool isExist = false;
@@ -120,6 +123,7 @@ int main() {
             
               switch (inputUser) {
                 case 1:
+                  cout << "\nTAMBAH SPAREPART" << endl;
                   // Tambah Sparepart
                   if (currentSparepart < MAX_SPAREPART){
                     // Deklarasi variabel inputName untuk menampung nama sparepart
@@ -159,7 +163,7 @@ int main() {
                   break;
                 case 2:
                   // Tampilkan Sparepart
-                
+                  cout << "\nTAMPILKAN SPAREPART" << endl;
                   // Menampilkan header tabel
                   cout << "+----+------------------------------------------+--------+-------------+" << endl;
                   cout << "| No | Sparepart                                | Stok   | Harga       |" << endl;
@@ -198,7 +202,7 @@ int main() {
                   break;
                 case 3:
                   // Update Stok Sparepart
-
+                  cout << "\nUBAH STOK SPAREPART" << endl;
                   // Mengecek apakah ada sparepart
                   if (currentSparepart == 0) {
                     cout << "Tidak ada sparepart yang bisa diubah!" << endl;
@@ -264,7 +268,7 @@ int main() {
                   break;
                 case 4:
                   // Delete Sparepart
-                
+                  cout << "\nHAPUS SPAREPART" << endl;
                   if (currentSparepart == 0) {
                     cout << "Tidak ada sparepart yang bisa dihapus!" << endl;
                   } else {
@@ -360,8 +364,5 @@ int main() {
     if (inputUserDashboard == 3 || attempts == 0){
       break;
     }
-    
   }
-  
 }
-
